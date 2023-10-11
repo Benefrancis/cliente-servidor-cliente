@@ -24,7 +24,6 @@ public class EnderecoResource {
     }
 
     @GET
-    @Path("/")
     public Response findByCEP(@QueryParam("uf") String uf, @QueryParam("cidade") String cidade, @QueryParam("logradouro") String logradouro) {
         var enderecos = service.findByLogradouro(uf, cidade, logradouro);
         if (Objects.isNull(enderecos)) return Response.status(404).entity(enderecos).build();
